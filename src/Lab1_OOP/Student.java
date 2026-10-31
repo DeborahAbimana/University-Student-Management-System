@@ -13,8 +13,6 @@ public class Student {
         return gpa;
     }
 
-
-
     public Student(String name, int studentID, String email, String phoneNumber, int age, double gpa,String major){
            this.name=name;
            this.studentID=studentID;
@@ -81,7 +79,7 @@ public class Student {
     }
     @Override
     public String toString(){
-      return"Name: "+ name +
+      return"StudentName: "+ name +
             "\nstudentID: "+ studentID +
             "\nemail: "+ email +
             "\ngpa: "+ gpa +
