@@ -2,10 +2,10 @@ package Lab1_OOP;
 
 public class Course {
 private String name;
-private String courseID;
+private int courseID;
 private String courseCode;
 private int creditHours;
-public Course( String name,String courseID,String courseCode,int creditHours){
+public Course( String name,int courseID,String courseCode,int creditHours){
     this.name=name;
     this.courseID=courseID;
     this.courseCode=courseCode;
@@ -28,11 +28,11 @@ public Course( String name,String courseID,String courseCode,int creditHours){
         this.courseCode = courseCode;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
 
@@ -49,7 +49,7 @@ public Course( String name,String courseID,String courseCode,int creditHours){
     return "name: " + name +
             "\nCourseID: " + courseID +
             "\nCourse Code: " + courseCode +
-            "\n Credit Hours: " + creditHours+"hours";
+            "\nCredit Hours: " + creditHours+"hours";
 
 
 

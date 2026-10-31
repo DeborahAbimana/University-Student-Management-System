@@ -6,14 +6,14 @@ public class Instructor {
     private String email;
     private String phoneNumber;
     private int age;
-    private String major;
-    public Instructor(String name,int instructorID,String email,String phoneNumber,int age,String major){
+    private String department;
+    public Instructor(String name,int instructorID,String email,String phoneNumber,int age,String department){
         this.name=name;
         this.instructorID=instructorID;
         this.email=email;
         this.phoneNumber=phoneNumber;
         this.age=age;
-        this.major=major;
+        this.department=department;
     }
 
     public String getName() {
@@ -52,12 +52,12 @@ public class Instructor {
     public void setAge(int age) {
         this.age= age;
     }
-    public String getMajor() {
-        return major;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Instructor {
                 "\nemail: " + email +
                 "\nPhoneNumber: " + phoneNumber +
                 "\nAge: " + age +
-                "\nMajor: " + major;
+                "\nDepartment: " + department;
 
     }
 }
