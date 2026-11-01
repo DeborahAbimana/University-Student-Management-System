@@ -1,4 +1,4 @@
-# University Student Management System
+# University Student Management System - Conflict Practice A
 
 ## About the Project
 
