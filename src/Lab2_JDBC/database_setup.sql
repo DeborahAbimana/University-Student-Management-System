@@ -2,7 +2,7 @@
 -- LAB 2: Database setup
 -- Database: university_management
 
--- 1.create students table
+-- 1. create students table
 
  create table students (
                           student_id serial primary key ,
@@ -18,7 +18,7 @@ alter table students
     add constraint check_student_age
         check(age >= 16 AND age <= 100);
 
--- 2.create courses table
+-- 2. create courses table
 
 
 create table courses (
@@ -27,7 +27,7 @@ create table courses (
                        course_code varchar(20) unique not null ,
                        credit_hours int not null
 );
---3.Create table enrollments
+--3. Create table enrollments
 
 
 create table  enrollments (
@@ -41,7 +41,7 @@ create table  enrollments (
 
                              unique (student_id, course_id)
 );
---4.insert student records
+--4. insert student records
 
 insert into students (name, email, phone_number, age, gpa, major)
 values
@@ -56,7 +56,7 @@ values
     ('Sarah', 'sarh638@gmail.com', '+250788666666', 20, 3.60, 'Software Engineering'),
     ('James', 'jams637@gmail.com', '+250788777777', 25, 3.30, 'Data Science');
 
---5.Insert course records
+--5. Insert course records
 
 insert into courses (name, course_code, credit_hours)
 values
@@ -91,7 +91,7 @@ from (values
                     on s.email = e.student_email
          inner join courses c
                     on c.course_code = e.course_code;
---7.Students with their enrolled courses
+--7. Students with their enrolled courses
 
 select
     s.student_id,
@@ -107,7 +107,7 @@ from enrollments e
                     on e.course_id = c.course_id
 order by s.student_id, c.course_code;
 
--- 8.update a student's enrollment
+-- 8. update a student's enrollment
 
 update enrollments
 set course_id = (
@@ -132,8 +132,18 @@ select
     c.course_code,
     e.enrollment_date
 from enrollments e
-         inner join students s
-                    on e.student_id = s.student_id
-         inner join courses c
-                    ON e.course_id = c.course_id
+inner join students s
+    on e.student_id = s.student_id
+inner join courses c
+    on e.course_id = c.course_id
 where s.student_id = 1;
+
+--10. check student before delete
+select * from students
+         where student_id=10;
+--11. Delete student
+delete from students
+where student_id=10;
+--12. verify student deletion
+select * from students
+         where students_id=10;
