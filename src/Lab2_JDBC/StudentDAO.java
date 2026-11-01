@@ -40,8 +40,8 @@ try (Connection connection = DBConnection.getConnection();
     ResultSet resultSet = preparedStatement.executeQuery()) {
 
     while (resultSet.next()) {
-     System.out.println("ID: " + resultSet.getInt("student_id"));
-     System.out.println("Name: " + resultSet.getString("name"));
+     System.out.println("Student ID: " + resultSet.getInt("student_id"));
+     System.out.println("Student Name: " + resultSet.getString("name"));
      System.out.println("Email: " + resultSet.getString("email"));
      System.out.println("Major: " + resultSet.getString("major"));
      System.out.println("---------------------------");
