@@ -17,12 +17,27 @@
 alter table students
     add constraint check_student_age
         check(age >= 16 AND age <= 100);
+
 -- 2.create courses table
--- 2. CREATE COURSES TABLE
+
 
 create table courses (
                        course_id serial primary key ,
                        name varchar(100) not null ,
                        course_code varchar(20) unique not null ,
                        credit_hours int not null
+);
+--3.Create enrollments
+
+
+CREATE TABLE enrollments (
+                             enrollment_id serial primary key ,
+                             student_id int not null ,
+                             course_id int not null ,
+                             enrollment_date date default current_date,
+
+                             foreign key (student_id) references students(student_id),
+                             foreign key (course_id) references courses(course_id),
+
+                             unique (student_id, course_id)
 );
