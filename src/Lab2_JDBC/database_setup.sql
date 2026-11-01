@@ -91,3 +91,49 @@ from (values
                     on s.email = e.student_email
          inner join courses c
                     on c.course_code = e.course_code;
+--7.Students with their enrolled courses
+
+select
+    s.student_id,
+    s.name,
+    s.email,
+    c.name AS course_name,
+    c.course_code,
+    e.enrollment_date
+from enrollments e
+         inner join students s
+                 on e.student_id = s.student_id
+         inner join courses c
+                    on e.course_id = c.course_id
+order by s.student_id, c.course_code;
+
+-- 8.update a student's enrollment
+
+update enrollments
+set course_id = (
+    select course_id
+    from courses
+    where course_code = 'CN202'
+)
+where student_id = 1
+  and course_id = (
+    select  course_id
+    from courses
+    where course_code = 'JV177'
+);
+
+-- 9. Verifying the Updated Enrollments
+
+select
+    s.student_id,
+    s.name,
+    s.email,
+    c.name as course_name,
+    c.course_code,
+    e.enrollment_date
+from enrollments e
+         inner join students s
+                    on e.student_id = s.student_id
+         inner join courses c
+                    ON e.course_id = c.course_id
+where s.student_id = 1;
