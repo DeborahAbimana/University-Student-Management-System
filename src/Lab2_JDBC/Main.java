@@ -7,8 +7,13 @@ public class Main {
         StudentDAO studentDAO = new StudentDAO();
         CourseDAO courseDAO = new CourseDAO();
         EnrollmentDAO enrollmentDAO = new EnrollmentDAO();
-        //studentDAO.addStudent("Abimana", "abdeb189@gmail.com", "+250788000000", 21, 3.5, "Information Technology");
-
+        //studentDAO.updateStudent(13, "abdeb200@gmail");
+        //studentDAO.deleteStudent(13);
+        //courseDAO.updateCourse(5, "Object Oriented Programming", 7);
+        //courseDAO.addCourse("Test Course", "TEST999", 3);
+        //courseDAO.updateCourse(5, "Object Oriented Programming", 6);
+        //courseDAO.deleteCourse(8);
+        //courseDAO.updateCourse(5, "Object Oriented Programming", 6);
         System.out.println("======================================");
         System.out.println("    UNIVERSITY MANAGEMENT SYSTEM\n        DATABASE REPORT");
         System.out.println("======================================");
