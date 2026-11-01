@@ -8,6 +8,7 @@ import java.sql.SQLException;
 public class EnrollmentDAO {
 
     public void getAllEnrollments() {
+        System.out.println("===== ALL STUDENT ENROLLMENTS =====");
 String sql = """
                 select
 enrollments.enrollment_id,
@@ -33,6 +34,24 @@ while (resultSet.next()) {
 } catch (SQLException e) {
     System.out.println("Error retrieving enrollments");
     e.printStackTrace();
+        }
+    }
+    public void addEnrollment(int studentId, int courseId) {
+        String sql = "insert into enrollments (student_id, course_id) values (?, ?)";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, studentId);
+            preparedStatement.setInt(2, courseId);
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("Student enrolled successfully");
+
+        } catch (SQLException e) {
+            System.out.println("Error enrolling student");
+            e.printStackTrace();
         }
     }
 }
