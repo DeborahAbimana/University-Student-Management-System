@@ -1,4 +1,5 @@
-# University Student Management System - Conflict Practice B
+# University Student Management System
+
 ## About the Project
 
 The University Student Management System is a Java project developed as part of the capstone assignment, **Building Data-Driven Java Applications with JDBC & OOP**.
