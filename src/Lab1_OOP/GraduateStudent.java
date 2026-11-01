@@ -5,7 +5,7 @@ package Lab1_OOP;
         }
         @Override
         public double calculateGpa(){
-            return getGpa();
+            return Math.min(getGpa()+0.1,4.0);
         }
     }
 

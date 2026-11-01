@@ -1,7 +1,6 @@
 package Lab1_OOP;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[]args){
@@ -15,30 +14,92 @@ public class Main {
         students.add(student);
         students.add(graduateStudent);
         students.add(undergraduateStudent);
-        students.remove(graduateStudent);
+        //students.remove(graduateStudent);
 
-         System.out.println(students.contains(graduateStudent));
-         System.out.println("Total registered students: "+students.size());
-         Student selectedStudent=students.get(0);
-         System.out.println(selectedStudent.getMajor());
-         System.out.println();
-        for(Student s:students) {
-            System.out.println(s);
+        Course course1=new Course("java",190,"JV177",6);
+
+        Map<Instructor, List<Course>> instructorAssignments = new HashMap<>();
+
+        List<Course> assignedCourses = new ArrayList<>();
+        assignedCourses.add(course);
+        assignedCourses.add(course1);
+
+        instructorAssignments.put(instructor, assignedCourses);
+
+        Set<Course>courses=new HashSet<>();
+
+        courses.add(course1);
+        courses.add(course);
+        Map<Course, List<Student>> courseRosters = new HashMap<>();
+
+        courseRosters.put(course, new ArrayList<>());
+        courseRosters.put(course1, new ArrayList<>());
+
+        courseRosters.get(course).add(student);
+        courseRosters.get(course).add(graduateStudent);
+
+        courseRosters.get(course1).add(undergraduateStudent);
+        System.out.println("==========================================");
+        System.out.println("       UNIVERSITY SYSTEM REPORT");
+        System.out.println("==========================================");
+
+
+        System.out.println("\n======= AVAILABLE COURSES =======");
+
+        for(Course c:courses){
+            System.out.println(c);
             System.out.println();
         }
-        System.out.println("----------Course Details----------");
-        System.out.println("Course "+ course);
+        System.out.println("Total Available Courses: "+courses.size());
+        System.out.println("\n======= COURSE ROSTERS =======");
+
+        for (Map.Entry<Course, List<Student>> entry : courseRosters.entrySet()) {
+
+            System.out.println("Course Name: " + entry.getKey().getName());
+
+            for (Student s : entry.getValue()) {
+                System.out.println("Enrolled Student: " + s.getName());
+            }
+
+            System.out.println("Total Enrolled Students: " + entry.getValue().size());
+            //System.out.println("-------------------------------");
+            System.out.println();
+        }
+
+        System.out.println("\n======= STUDENTS RECORDS =======");
+        System.out.println("Total Registered Students: " + students.size());
+
+        for (Student s : students) {
+            System.out.println();
+            System.out.println(s);
+        }
+        System.out.println("\n======= INSTRUCTOR INFORMATION =======");
+
+        for (Map.Entry<Instructor, List<Course>> entry :
+                instructorAssignments.entrySet()) {
+
+            System.out.println( entry.getKey());
+            System.out.println("\nAssigned Courses: ");
+            for (Course c:entry.getValue()){
+                System.out.println("- "+c.getName());
+
+            }
+
+            System.out.println("Total Assigned Courses: " + entry.getValue().size());
+            System.out.println("--------------------------------------");
+        }
+
         System.out.println();
-        System.out.println("---------Instructor Details----------");
-        System.out.println("Instructor "+instructor);
-        System.out.println();
+
         Student student1=graduateStudent;
         Student student2=undergraduateStudent;
-        System.out.println();
-        System.out.println("-----GPA Results-----");
+
+        System.out.println("======= GPA PERFORMANCE =======");
         System.out.println("Graduate GPA: "+student1.calculateGpa());
         System.out.println("Undergraduate GPA: "+student2.calculateGpa());
-
+        System.out.println("==========================================");
+        System.out.println("       END OF UNIVERSITY SYSTEM REPORT");
+        System.out.println("==========================================");
 
     }
 

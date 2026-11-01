@@ -46,7 +46,7 @@ public Course( String name,int courseID,String courseCode,int creditHours){
 
     @Override
     public String toString() {
-    return "name: " + name +
+    return "CourseName: " + name +
             "\nCourseID: " + courseID +
             "\nCourse Code: " + courseCode +
             "\nCredit Hours: " + creditHours+"hours";
