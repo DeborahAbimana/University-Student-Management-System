@@ -2,6 +2,7 @@ package Lab2_JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StudentDAO {
@@ -31,4 +32,60 @@ try (Connection connection = DBConnection.getConnection();
 
         }
     }
+    public void getAllStudents() {
+        String sql = "select * from students";
+
+    try (Connection connection = DBConnection.getConnection();
+    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    ResultSet resultSet = preparedStatement.executeQuery()) {
+
+    while (resultSet.next()) {
+     System.out.println("ID: " + resultSet.getInt("student_id"));
+     System.out.println("Name: " + resultSet.getString("name"));
+     System.out.println("Email: " + resultSet.getString("email"));
+     System.out.println("Major: " + resultSet.getString("major"));
+     System.out.println("---------------------------");
+     }
+     } catch (SQLException e) {
+     e.printStackTrace();
+
+     }
+    }
+    public void updateStudent(int studentId, String email) {
+
+        String sql = "update students set email = ? where student_id = ?";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, email);
+            preparedStatement.setInt(2, studentId);
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("Student updated successfully!");
+
+        } catch (SQLException e) {
+            System.out.println("Error updating student!");
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteStudent(int studentId) {
+
+    String sql = "delete from students where student_id = ?";
+
+    try (Connection connection = DBConnection.getConnection();
+    PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+preparedStatement.setInt(1, studentId);
+preparedStatement.executeUpdate();
+
+System.out.println("Student deleted successfully!");
+} catch
+    (SQLException e) {
+System.out.println("Error deleting student!");
+e.printStackTrace();
+
+}
+}
 }
