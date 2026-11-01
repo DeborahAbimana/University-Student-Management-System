@@ -89,7 +89,11 @@ Through this project, I am gaining practical experience in:
 - Connecting Java applications to PostgreSQL databases.
 - Performing database operations using JDBC.
 - Separating database operations from other application responsibilities using the DAO pattern.
-- Managing project changes with Git and GitHub.
+- Managing project changes with Git and GitHub
+
+## Lab 3 Exercise 3.3 - Git Practice
+
+This exercise demonstrates feature branches, commits, pull requests, code reviews, and merge conflict resolution
 
 ## Author
 
